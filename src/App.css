@@ -1,0 +1,32 @@
+
+.imagem-produto{
+  width:60px;
+  height: 60px
+}
+
+.produto{
+  margin:1px;
+  padding: 5px;
+  border-style: groove;
+   display:flex;
+   align-items: center;
+   justify-content: space-between
+
+}
+.produto:hover{
+  border-style: solid;
+  border-color: blue
+}
+.card-boteco{
+  margin: 0;
+  padding: 0;
+  width:100%
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+
+}
