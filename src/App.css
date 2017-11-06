@@ -5,7 +5,9 @@
 }
 
 .produto{
-  margin:1px;
+  width: 100%;  
+  margin: 1px;
+  margin-top: 20px;
   padding: 5px;
   border-style: groove;
    display:flex;
@@ -27,6 +29,6 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  padding: 0;
+  padding: 10px;
 
 }

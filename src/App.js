@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 
-import NavBar from './NavBar';
+import NavBar from "./NavBar";
 
-import Comanda from './Comanda';
-import Pedido from './Pedido';
-import Atendimento from './Atendimento';
+import Comanda from "./Comanda";
+import Pedido from "./Pedido";
+import Atendimento from "./Atendimento";
 
-import './App.css';
+import "./App.css";
 
 class App extends Component {
   render() {
-    return <div>
+    return (
+      <div>
         <NavBar />
         <main>
           <Switch>
@@ -21,7 +22,8 @@ class App extends Component {
             <Redirect to="/" />
           </Switch>
         </main>
-      </div>;
+      </div>
+    );
   }
 }
 
