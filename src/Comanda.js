@@ -5,41 +5,56 @@ import base from "./base";
 
 class Comanda extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
       produtos: [],
-      estabelecimentos: []
-    };
+      estabelecimentos: [],
+    }
 
     base.bindToState("produtos", {
       context: this,
       state: "produtos"
-    });
+    })
     base.bindToState("estabelecimentos", {
       context: this,
       state: "estabelecimentos"
-    });
+    })
   }
+  componentDidMount(){
+    this.itemArray = []
+    this.setState({itens: this.itemArray})
+  }
+
+addItem(item) {
+    console.log("item: "+item)
+    console.log("itens normal: "+this.state.itens)
+this.setState({itens:[...this.state.itens, item]})
+      console.log("itens alterado:"+this.state.itens)
+  };
+
   render() {
+
     return (
       <div>
-        {this.state.estabelecimentos.map(esta => {
-          return (
-            <CardBar 
-            key={esta.id} 
-            imageURL={esta.imageURL} 
-            nome={esta.nome} />
-          );
-        })}
+        <div>
+
+          {this.state.estabelecimentos.map(esta => {
+            return (
+              <CardBar
+                key={esta.id}
+                imageURL={esta.imageURL}
+                nome={esta.nome}
+              />
+            );
+          })}
+        </div>
         <section id="produtos" className="container card">
           {this.state.produtos.map(prod => {
             return (
-              <Produto
-                key={prod.id}
-                imageURL={prod.imageURL}
-                nome={prod.nome}
-                preco={prod.preco}
-              />
+              <div key={prod.id}>
+              <Produto produto = {prod} addItem={(e) => this.addItem(prod, e)}/>
+              </div>
             );
           })}
         </section>
