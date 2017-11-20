@@ -12,6 +12,8 @@ class Comanda extends Component {
       estabelecimentos: [],
     }
 
+    this.createPedido = this.createPedido.bind(this)
+
     base.bindToState("produtos", {
       context: this,
       state: "produtos"
@@ -33,6 +35,18 @@ this.setState({itens:[...this.state.itens, item]})
       console.log("itens alterado:"+this.state.itens)
   };
 
+  createPedido(){
+
+    base.push('pedido', {
+    data: [{itens:this.state.itens, usuario_id: '1', estabelecimento_id:'1'}]
+  }).then(newLocation => {
+
+  }).catch(err => {
+    console.error(err);
+  });
+
+  }
+
   render() {
 
     return (
@@ -45,9 +59,13 @@ this.setState({itens:[...this.state.itens, item]})
                 key={esta.id}
                 imageURL={esta.imageURL}
                 nome={esta.nome}
+                
               />
             );
           })}
+          <div>
+            <button onClick={this.createPedido}>Salvar</button>
+          </div>
         </div>
         <section id="produtos" className="container card">
           {this.state.produtos.map(prod => {
